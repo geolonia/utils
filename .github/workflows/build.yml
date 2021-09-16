@@ -27,10 +27,10 @@ jobs:
         with:
           path: node_modules
           key: modules-cache-v1-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
-      - run: npm install
-      - run: npm run lint
-      - run: npm test
-      - run: npm run build
+      - run: yarn
+      - run: yarn run lint
+      - run: yarn test
+      - run: yarn build
       - name: save the built
         uses: actions/upload-artifact@v2
         if: "!failure()"
@@ -57,7 +57,6 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: the-built
-      - run: ls # test
       - run: npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
