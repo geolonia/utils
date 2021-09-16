@@ -1,6 +1,6 @@
 {
   "name": "@geolonia/utils",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "The Geolonia Utilities.",
   "main": "dist/index.js",
   "author": "Geolonia (https://geolonia.com)",
