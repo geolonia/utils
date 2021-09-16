@@ -16,12 +16,9 @@ export const normalizeOrigins = (lineDelimetedAllowedOrigins: string) => {
         prev.add(origin);
       } else {
         try {
-          const { groups: { protocol, hostAndPort, directory } } = (urlPattern.exec(origin) || {}) as { groups: { protocol: any, hostAndPort: any, directory: any } };
+          const { groups: { protocol, hostAndPort } } = (urlPattern.exec(origin) || {}) as { groups: { protocol: any, hostAndPort: any, directory: any } };
           if (protocol && hostAndPort) {
-            let origin = `${protocol}://${hostAndPort}`;
-            if (directory && directory !== '/') {
-              origin += directory;
-            }
+            const origin = `${protocol}://${hostAndPort}`;
             prev.add(origin);
           }
         } catch (_e) {
