@@ -19,6 +19,12 @@ describe('allowed origin normalizer', () => {
     expect(output).toEqual(['https://example.com']);
   });
 
+  it('should normalize URL without empty lines', () => {
+    const input = ['', 'https://example.com', ''].join('\n');
+    const output = normalizeOrigins(input);
+    expect(output).toEqual(['https://example.com']);
+  });
+
   it('should normalize URL of subdomain', () => {
     const input = ['https://www.a.b.c.d.e.f.example.com'].join('\n');
     const output = normalizeOrigins(input);
