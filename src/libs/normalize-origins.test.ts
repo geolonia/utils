@@ -34,7 +34,7 @@ describe('allowed origin normalizer', () => {
   it('should normalize URL with port, dirctory, querystring and hash.', () => {
     const input = ['https://example.com:8000/hello/world?query=hello#aaaaa'].join('\n');
     const output = normalizeOrigins(input);
-    expect(output).toEqual(['https://example.com:8000/hello/world?query=hello#aaaaa']);
+    expect(output).toEqual(['https://example.com:8000']);
   });
 
   it('should normalize localhost', () => {
